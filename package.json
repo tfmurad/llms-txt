@@ -1,12 +1,12 @@
 {
-  "name": "@tfmurad/llms-txt",
+  "name": "@tfmurad/llms-generator",
   "version": "1.0.0",
   "description": "Universal CLI tool to generate llms.txt and llms-full.txt for any static site (Astro, Next.js)",
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "bin": {
-    "llms-txt": "./bin/llms-txt.js"
+    "llms-txt": "bin/llms-txt.js"
   },
   "files": [
     "bin/",

@@ -1,6 +1,6 @@
-# @tfmurad/llms-txt
+# @tfmurad/llms-generator
 
-[![npm version](https://badge.fury.io/js/@tfmurad%2Fllms-txt.svg)](https://www.npmjs.com/package/@tfmurad/llms-txt)
+[![npm version](https://badge.fury.io/js/@tfmurad%2Fllms-generator.svg)](https://www.npmjs.com/package/@tfmurad/llms-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A universal CLI tool to generate `llms.txt` and `llms-full.txt` files for any static site. Currently optimized for **Astro** and **Next.js** projects.
@@ -21,11 +21,12 @@ The `llms.txt` standard helps language models discover and understand your websi
 - ✅ **Smart detection** - Auto-detects Astro and Next.js projects
 - ✅ **TypeScript support** - Includes TypeScript type definitions
 - ✅ **SSR & Static** - Works with both SSR and static export builds
+- ✅ **Smart cleanup** - Removes disabled file types automatically
 
 ## Installation
 
 ```bash
-npm install -D @tfmurad/llms-txt
+npm install -D @tfmurad/llms-generator
 ```
 
 This automatically:
@@ -172,6 +173,34 @@ npx llms-txt --verbose
 ["404", "404.html", "_astro", "_next", "**.xml", "**.txt", "node_modules"]
 ```
 
+### Disabling File Types
+
+When you disable file types in config, previously generated files are automatically removed:
+
+```json
+{
+  "generate_individual_md": false,
+  "generate_llms_txt": true,
+  "generate_llms_full_txt": false
+}
+```
+
+This will:
+- ✅ Remove all existing `.md` files
+- ✅ Remove `llms-full.txt` 
+- ✅ Keep `llms.txt` (regenerates it)
+- ✅ Remove empty directories
+
+To disable all generation and clean up everything:
+
+```json
+{
+  "generate_individual_md": false,
+  "generate_llms_txt": false,
+  "generate_llms_full_txt": false
+}
+```
+
 ## Output Files
 
 After running, you'll have:
@@ -242,7 +271,7 @@ If your site uses different HTML structure:
 ### Programmatic Usage
 
 ```javascript
-import { generateLlmsFiles } from '@tfmurad/llms-txt';
+import { generateLlmsFiles } from '@tfmurad/llms-generator';
 
 await generateLlmsFiles({
   inputDir: './dist',
@@ -257,7 +286,7 @@ await generateLlmsFiles({
 TypeScript types are included:
 
 ```typescript
-import { generateLlmsFiles, LlmsConfig } from '@tfmurad/llms-txt';
+import { generateLlmsFiles, LlmsConfig } from '@tfmurad/llms-generator';
 
 const config: LlmsConfig = {
   // ... your config
@@ -278,7 +307,7 @@ npm run build
 
 For Next.js SSR, the HTML files are generated at runtime. You need to:
 1. Use static export (`output: 'export'` in next.config.js), or
-2. Point to the correct server directory (`./.next/server/app` or `./.next/server/pages`)
+2. Point to the correct server directory (`./.next/server/app` for App Router or `./.next/server/pages` for Pages Router)
 
 ### Pages not showing up in output
 
