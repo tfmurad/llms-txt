@@ -1,6 +1,6 @@
 {
   "name": "@tfmurad/llms-generator",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Universal CLI tool to generate llms.txt and llms-full.txt for any static site (Astro, Next.js)",
   "type": "module",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
     "bin/",
     "scripts/",
     "src/",
-    "readme.md",
+    "README.md",
     "LICENSE"
   ],
   "scripts": {
@@ -33,11 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tfmurad/llms-txt.git"
+    "url": "git+https://github.com/tfmurad/llms-generator.git"
   },
-  "homepage": "https://github.com/tfmurad/llms-txt#readme",
+  "homepage": "https://github.com/tfmurad/llms-generator#readme",
   "bugs": {
-    "url": "https://github.com/tfmurad/llms-txt/issues"
+    "url": "https://github.com/tfmurad/llms-generator/issues"
   },
   "dependencies": {
     "commander": "^14.0.3",

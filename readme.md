@@ -25,6 +25,8 @@ The `llms.txt` standard helps language models discover and understand your websi
 
 ## Installation
 
+**Install as a devDependency** - This is a build-time tool, not needed in production:
+
 ```bash
 npm install -D @tfmurad/llms-generator
 ```
@@ -32,6 +34,23 @@ npm install -D @tfmurad/llms-generator
 This automatically:
 - Creates `src/config/llms.json` with framework-specific settings
 - Appends `llms-txt` to your `build` script (if it exists)
+
+> ⚠️ **Important:** Only the generated files (llms.txt, llms-full.txt, .md files) are deployed. This package itself is a **devDependency** and should not be included in production deployments.
+
+## Deployment Note
+
+This package is a **build tool** that runs during your build process. Here's what happens:
+
+1. **During Build**: The package reads your HTML files and generates:
+   - `llms.txt` - Index file
+   - `llms-full.txt` - Full content
+   - Individual `.md` files - One per page
+
+2. **After Build**: These generated files are in your output folder (`dist/` or `out/`)
+
+3. **Deployment**: Only deploy the generated files, **not** this npm package
+
+**In short:** The package runs locally/CI to create files, then those files get deployed with your site.
 
 ## Quick Start
 
