@@ -1,0 +1,54 @@
+{
+  "name": "@tfmurad/llms-txt",
+  "version": "1.0.0",
+  "description": "Universal CLI tool to generate llms.txt and llms-full.txt for any static site (Astro, Next.js)",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "bin": {
+    "llms-txt": "./bin/llms-txt.js"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "src/",
+    "readme.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "llms-txt",
+    "llms",
+    "ai",
+    "astro",
+    "nextjs",
+    "static-site",
+    "markdown",
+    "cli"
+  ],
+  "author": "Al Murad Uzzaman",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfmurad/llms-txt.git"
+  },
+  "homepage": "https://github.com/tfmurad/llms-txt#readme",
+  "bugs": {
+    "url": "https://github.com/tfmurad/llms-txt/issues"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "glob": "^13.0.6",
+    "node-html-parser": "^7.1.0",
+    "turndown": "^7.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

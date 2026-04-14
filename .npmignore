@@ -1,0 +1,49 @@
+# Tests
+__tests__/
+*.test.js
+*.spec.js
+test/
+tests/
+
+# Development configs
+.eslintrc*
+.prettierrc*
+.editorconfig
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/
+.travis.yml
+.gitlab-ci.yml
+
+# Documentation (keep readme.md)
+docs/
+CONTRIBUTING.md
+CHANGELOG.md
+
+# Examples
+examples/
+example/
+
+# Development files
+*.log
+.env*
+.DS_Store
+*.tgz
+
+# Source maps
+*.map
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
